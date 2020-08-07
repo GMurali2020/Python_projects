@@ -1,0 +1,30 @@
+{%  load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login--Admin</title>
+    <style>
+        .login{
+            alignment: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img align="left" src="{% static 'images/ehealth.jfif' %}" class="img-rounded" alt="Cinque Terre" width="150" height="150">
+        <h1 align="center" style="font-size: 50px;margin: auto; padding: 22px; color: darkgoldenrod;background:maroon;font-family: 'Arial','Chandas','Roboto Light';"> E_Helth</h1>
+    </div>
+    <div class="login">
+        <h1>Login</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" />
+        </form>
+    </div>
+</body>
+</html>

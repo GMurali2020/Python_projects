@@ -1,0 +1,36 @@
+{% include 'title.html' %}
+<table align="center" border="1">
+    <tr><th colspan="6">User View Deatils</th></tr>
+    <tr><th>uno</th>
+        <th>uname</th>
+        <th>contact</th>
+        <th>qualification</th>
+        <th>email</th>
+        <th>proof</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for x in value %}
+        <tr><th>{{ x.uno }}</th>
+        <th>{{ x.uname }}</th>
+        <th>{{ x.contact }}</th>
+        <th>{{ x.qualification }}</th>
+        <th>{{ x.email }}</th>
+        <th>{{ x.proof }}</th>
+        <th><form action="{% url 'updatuno' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="update" value="{{ x.uno }}">
+            <button type="submit">Update</button>
+        </form>
+        </th>
+        <th><form action="{% url 'deleteuno' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="delete" value="{{ x.uno }}">
+            <button type="submit">Delete</button>
+        </form>
+        </th>
+    </tr>
+
+    {% endfor %}
+
+</table>

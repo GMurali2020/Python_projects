@@ -1,0 +1,30 @@
+{% include 'home.html' %}
+<table align="center" border="1">
+    <tr><th colspan="6">Medicines&Dicieses View Deatils</th></tr>
+    <tr><th>Mno</th>
+        <th>Dname</th>
+        <th>Medicines</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for x in data %}
+        <tr><th>{{ x.mdno }}</th>
+        <th>{{ x.dname }}</th>
+        <th>{{ x.medicines }}</th>
+        <th><form action="{% url 'updatmd' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="updatemd" value="{{ x.mdno }}">
+            <button type="submit">Update</button>
+        </form>
+        </th>
+        <th><form action="{% url 'deletmd' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="deletmd" value="{{ x.mdno }}">
+            <button type="submit">Update</button>
+        </form>
+        </th>
+        </tr>
+
+    {% endfor %}
+
+</table>

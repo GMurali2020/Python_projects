@@ -1,0 +1,28 @@
+{% include 'title.html' %}
+<form action="{% url 'savedatamd' %}" method="post">
+{% csrf_token %}
+<table align="center" border="1">
+    <tr><th>Medicines&Dicieses</th></tr>
+    <tr><td>Mno:<input type="number" name="mno" value="{{ idno }}"></td></tr>
+    <tr><th>Dname:{{ form.dname }}</th></tr>
+    <tr><th>Medicines:{{ form.medicines }}</th></tr>
+    <tr><th><button type="submit">save</button> </th></tr>
+
+</table>
+</form>
+
+<table align="center" border="1">
+    <tr><th colspan="6">Medicines&Dicieses View Deatils</th></tr>
+    <tr><th>Mno</th>
+        <th>Dname</th>
+        <th>Medicines</th>
+    </tr>
+    {% for x in data %}
+        <tr><th>{{ x.mdno }}</th>
+        <th>{{ x.dname }}</th>
+        <th>{{ x.medicines }}</th>
+        </tr>
+
+    {% endfor %}
+
+</table>

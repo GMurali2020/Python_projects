@@ -1,0 +1,12 @@
+{% include 'title.html' %}
+<form action="{% url 'saveupdateMD' %}" method="post">
+{% csrf_token %}
+<table align="center" border="1">
+    <tr><th>MDupdatepage</th></tr>
+    <tr><td>Mno:<input type="number" name="update" value="{{ data.mdno }}"></td></tr>
+    <tr><th>dname:<input type="text" name="dname" value="{{ data.dname }}"></th></tr>
+    <tr><th>Suggest_medicines:{{ form.medicines }}</th></tr>
+    <tr><th><button type="submit">save</button> </th></tr>
+
+</table>
+</form>
