@@ -1,0 +1,21 @@
+{% extends 'common.html' %}
+{% block pwn %}
+    <form action="http://127.0.0.1:5000/validate" method="post">
+    <table align="center" border="0">
+    <tr><th rowspan="5"><img src="{{ url_for('static',filename='images/admin.jpg') }}"></th></tr>
+    <tr align="center"><th style="background-color: green;font-size:25px;color: white;font-family:DejaVu Sans;">Login Page</th></tr>
+    <tr><th><input type="text" placeholder="UserName" name="t1"></th></tr>
+    <tr><th><input type="password" placeholder="Password" name="t2" ^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$
+></th></tr>
+    <tr align="center"><th><button type="submit" style="color:brown;background-color: aqua;">Login</button> </th></tr>
+        {% if message %}
+        <tr align="center"><th><div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>{{ message.error }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div></th></tr>
+        {% endif %}
+    </table>
+    </form>
+{% endblock %}

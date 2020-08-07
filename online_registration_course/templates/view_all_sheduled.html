@@ -1,0 +1,45 @@
+{% extends 'common.html' %}
+
+{% block pwn %}
+    {% include 'menu.html' %}
+    <table align="center" border="2">
+    <tr align="center"><th style="background-color: green;font-size:25px;color: white;font-family:DejaVu Sans;" colspan="9">View All Details</th></tr>
+    <tr><th class="cidno">cno</th>
+        <th class="cidno">name</th>
+        <th class="cidno">faculty</th>
+        <th class="cidno">data</th>
+        <th class="cidno">time</th>
+        <th class="cidno">fee</th>
+        <th class="cidno">duration</th>
+        <th class="cidno">update</th>
+        <th class="cidno">delete</th>
+
+
+    </tr>
+    {% for x in data %}
+<tr>
+        {% for y in x %}
+<th>
+ {{ y }}
+</th>
+            {% endfor %}
+
+<th class="cidno">
+    <a href="http://127.0.0.1:5000/update_course?idno={{ x[0] }}">
+    <img src="{{ url_for('static',filename='images/refresh.png') }}" height="35" width="30">
+    </a>
+</th>
+
+
+    <th class="cidno">
+        <a href="http://127.0.0.1:5000/delete_couse_scheduled?idno={{ x[0] }}">
+        <img src="{{ url_for('static',filename='images/delete.png') }}" height="35" width="30">
+        </a>
+    </th>
+</tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}
+
+

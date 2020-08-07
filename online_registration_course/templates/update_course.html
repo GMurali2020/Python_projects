@@ -1,0 +1,59 @@
+{% extends 'common.html' %}
+{% block pwn %}
+    {% include 'menu.html' %}
+    <form action="http://127.0.0.1:5000/save_course_update" method="post">
+    <table align="center" border="2">
+    <tr align="center"><th style="background-color: green;font-size:25px;color: white;font-family:DejaVu Sans;">update scheduled Class</th></tr>
+    <tr><th><input type="hidden" name="c0" value="{{ data[0] }}"> </th></tr>
+    <tr><th>
+
+    <input type="text" class="form-control"
+           value="{{ data[1] }}"
+           aria-label="Sizing example input"
+           aria-describedby="inputGroup-sizing-default" placeholder="name" name="c1" required>
+    </th></tr>
+    <tr><th>
+
+    <input type="text" class="form-control"
+           value="{{ data[2] }}"
+           aria-label="Sizing example input"
+           aria-describedby="inputGroup-sizing-default" placeholder="Faculty" name="c2" required>
+    </th></tr>
+    <tr><th>
+
+    <input type="date" class="form-control"
+           value="{{ data[3] }}"
+           aria-label="Sizing example input"
+           aria-describedby="inputGroup-sizing-default" placeholder="date" name="c3" required>
+    </th></tr>
+    <tr><th>
+
+    <input type="time" class="form-control"
+           value="{{ data[4] }}"
+           aria-label="Sizing example input"
+           aria-describedby="inputGroup-sizing-default" placeholder="time" name="c4" required>
+    </th></tr>
+    <tr><th>
+
+    <input type="number" class="form-control"
+           value="{{ data[5] }}"
+           aria-label="Sizing example input"
+           aria-describedby="inputGroup-sizing-default" placeholder="fee" name="c5" required>
+    </th></tr>
+    <tr><th>
+
+    <input type="text" class="form-control"
+           value="{{ data[6] }}"
+           aria-label="Sizing example input"
+           aria-describedby="inputGroup-sizing-default" placeholder="duration" name="c6" required>
+    </th></tr>
+    <tr align="center"><th><button type="submit" class="btn btn-warning">update</button>
+</th></tr>
+        {% if message %}
+        <tr><th><div class="alert alert-secondary" role="alert">
+  {{ message }}
+</div></th></tr>
+        {% endif %}
+    </table>
+    </form>
+{% endblock %}
