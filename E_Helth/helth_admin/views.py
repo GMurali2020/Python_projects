@@ -4,6 +4,7 @@ from .models import UserModel, MedicienandDiseasesModel
 from .forms import UserForm, UserloginForm, MedicienanddiseasesForm
 from django.contrib.auth import login, get_user_model, authenticate
 
+# this is testing for git hub changes
 
 # Create your views here.
 def home(request):
